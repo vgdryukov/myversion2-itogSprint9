@@ -1,0 +1,50 @@
+# Binaries for programs and plugins
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+*.txt
+
+# Go workspace files
+bin/
+pkg/
+
+# Dependency directories
+vendor/
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Log files
+*.log
+
+# Data files
+data/
+*.dat
+
+# SSL certificates (не коммитить!)
+*.pem
+*.key
+
+# Environment variables
+.env
+.env.local
+
+# Build artifacts
+/build/
+/dist/
