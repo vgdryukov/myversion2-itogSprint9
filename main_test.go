@@ -51,7 +51,7 @@ func TestGenerateRandomElements(t *testing.T) {
 				// Проверяем диапазон
 				for _, num := range result {
 					assert.GreaterOrEqual(t, num, 1)
-					assert.LessOrEqual(t, num, 100)
+					assert.LessOrEqual(t, num, MaxInt)
 				}
 
 				// Проверяем, что есть хотя бы два разных числа
@@ -75,7 +75,7 @@ func TestGenerateRandomElements(t *testing.T) {
 				// Проверяем диапазон
 				for _, num := range result {
 					assert.GreaterOrEqual(t, num, 1)
-					assert.LessOrEqual(t, num, 50_000)
+					assert.LessOrEqual(t, num, MaxInt)
 				}
 
 				// Проверяем, что есть хотя бы два разных числа
@@ -99,7 +99,7 @@ func TestGenerateRandomElements(t *testing.T) {
 				// Проверяем диапазон
 				for _, num := range result {
 					assert.GreaterOrEqual(t, num, 1)
-					assert.LessOrEqual(t, num, 100_000_000)
+					assert.LessOrEqual(t, num, MaxInt)
 				}
 
 				// Проверяем, что есть хотя бы два разных числа

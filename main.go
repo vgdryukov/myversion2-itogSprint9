@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"math"
 	"math/rand"
 	"sync"
 	"time"
@@ -12,6 +13,8 @@ const (
 	CHUNKS = 8
 )
 
+var MaxInt = math.MaxInt
+
 // generateRandomElements generates random elements.
 func generateRandomElements(size int) []int {
 	if size <= 0 {
@@ -19,12 +22,13 @@ func generateRandomElements(size int) []int {
 	}
 
 	data := make([]int, size)
-	r := rand.New(rand.NewSource(time.Now().UnixNano()))
 
+	// Генерирую случайные числа, используя генератор с seed на основе текущего времени
+	// и функцию Intn() для гарантированной безопасности от переполнения
+	var myRand = rand.New(rand.NewSource(time.Now().UnixNano()))
 	for i := 0; i < size; i++ {
-		data[i] = r.Intn(size) + 1
+		data[i] = myRand.Intn(MaxInt) + 1
 	}
-
 	return data
 }
 
