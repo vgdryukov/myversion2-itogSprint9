@@ -67,14 +67,7 @@ func maxChunks(data []int) int {
 
 		go func(chunkIndex int, chunk []int) {
 			defer wg.Done()
-
-			chunkMaximum := chunk[0]
-			for j := 1; j < len(chunk); j++ {
-				if chunk[j] > chunkMaximum {
-					chunkMaximum = chunk[j]
-				}
-			}
-			maxResults[chunkIndex] = chunkMaximum
+			maxResults[chunkIndex] = maximum(chunk)
 		}(i, chunk)
 	}
 
