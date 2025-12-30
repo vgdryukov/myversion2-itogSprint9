@@ -58,22 +58,24 @@ func maxChunks(data []int) int {
 
 		start := i * chunkSize
 		end := start + chunkSize
-
 		if i == CHUNKS-1 {
 			end = len(data)
 		}
 
-		go func(chunkIndex, startIdx, endIdx int) {
+		// Создаем срез для чанка
+		chunk := data[start:end]
+
+		go func(chunkIndex int, chunk []int) {
 			defer wg.Done()
 
-			chunkMax := data[startIdx]
-			for j := startIdx + 1; j < endIdx; j++ {
-				if data[j] > chunkMax {
-					chunkMax = data[j]
+			chunkMaximum := chunk[0]
+			for j := 1; j < len(chunk); j++ {
+				if chunk[j] > chunkMaximum {
+					chunkMaximum = chunk[j]
 				}
 			}
-			maxResults[chunkIndex] = chunkMax
-		}(i, start, end)
+			maxResults[chunkIndex] = chunkMaximum
+		}(i, chunk)
 	}
 
 	wg.Wait()
